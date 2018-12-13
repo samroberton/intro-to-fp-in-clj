@@ -1,6 +1,6 @@
 (ns examples.example1
   (:require [ring.adapter.jetty :as jetty]
-            [runner :as runner]))
+            [runner]))
 
 
 (defn handler [request]
