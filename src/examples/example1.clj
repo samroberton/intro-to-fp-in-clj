@@ -1,5 +1,6 @@
 (ns examples.example1
-  (:require [ring.adapter.jetty :as jetty]))
+  (:require [ring.adapter.jetty :as jetty]
+            [runner :as runner]))
 
 
 (defn handler [request]
@@ -8,4 +9,4 @@
 
 
 (defn run []
-  (jetty/run-jetty #'handler {:port 8080 :join? false}))
+  (alter-var-root #'runner/handler (constantly #'handler)))
