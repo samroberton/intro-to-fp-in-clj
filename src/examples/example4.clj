@@ -3,6 +3,12 @@
             [data.campaigns :refer [campaigns]]))
 
 
+;; Ok, returning all of them is a bit much. We should probably apply the
+;; targetting rules.  That sounds hard, though, so how about we just guarantee
+;; that we don't show creatives whose targetting isn't met by just removing all
+;; campaigns and creatives with targetting rules?
+
+
 (defn handler [request]
   {:status 200
    :body   (->> campaigns

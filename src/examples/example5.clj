@@ -3,6 +3,9 @@
             [data.campaigns :refer [campaigns]]))
 
 
+;; Yeah, that was kind of cheating, though.  Let's actually apply some
+;; targetting rules.
+
 (defn targetted? [targetting-rules query-params]
   (letfn [(apply-rule [[target-kw rule-fn]]
             (rule-fn (get query-params (name target-kw))))]

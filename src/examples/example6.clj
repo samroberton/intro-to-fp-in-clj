@@ -3,6 +3,9 @@
             [data.campaigns :refer [campaigns]]))
 
 
+;; Except that example showed the same creative multiple times.  We should
+;; probably avoid that.
+
 (defn targetted? [targetting-rules query-params]
   (letfn [(apply-rule [[target-kw rule-fn]]
             (rule-fn (get query-params (name target-kw))))]
@@ -19,6 +22,9 @@
                 (map #(select-keys % [:creative/id :creative/text]))
                 (distinct)
                 (json/write-str))})
+
+;; The only difference in the above is the introduction of `(distinct)` in the
+;; pipeline.
 
 
 #_

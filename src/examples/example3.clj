@@ -3,6 +3,9 @@
             [data.campaigns :refer [campaigns]]))
 
 
+;; Returning one creative is boring.  Let's return all of them!
+
+
 (defn handler [request]
   {:status 200
    :body   (->> campaigns
